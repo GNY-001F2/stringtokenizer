@@ -26,11 +26,11 @@ namespace stringtokenizer {
 
 /* string_tokens_to_int(std::string source, char delimiter):
  * template function that returns a vector of your specified integer type
- * converted from a source string as segregated by the delimiter of  your
- * choice
+ * converted from a source string as segregated by the delimiter of your
+ * choice with the default being spaces
  */
 template <typename intT> std::vector<intT>
-string_tokens_to_int(std::string source, char delimiter);
+string_tokens_to_int(std::string source, char delimiter = ' ');
 
 /* string_tokens_to_int(std::vector<std::string> tokens):
  * template function that returns a vector of your specified integer type
@@ -47,10 +47,10 @@ string_tokens_to_int(std::vector<std::string> tokens);
 /* string_tokens_to_uint(std::string source, char delimiter):
  * template function that returns a vector of your specified unsigned integer
  * type converted from a source string as segregated by the delimiter of your
- * choice
+ * choice with the default being a space
  */
 template <typename UintT> std::vector<UintT>
-string_tokens_to_uint(std::string source, char delimiter);
+string_tokens_to_uint(std::string source, char delimiter = ' ');
 
 /* string_tokens_to_int(std::vector<std::string> tokens):
  * template function that returns a vector of your specified unsigned
@@ -62,9 +62,9 @@ string_tokens_to_uint(std::vector<std::string> tokens);
 /*TODO: define functions for float values */
 
 /* converts an entered string into a vector of string tokens based on
- * the delimiter.
+ * the delimiter, with the default being a space.
  */
-std::vector<std::string> tokenize(std::string source, char delimiter);
+std::vector<std::string> tokenize(std::string source, char delimiter = ' ');
 
 }
 

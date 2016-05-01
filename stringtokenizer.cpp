@@ -72,8 +72,8 @@ string_tokens_to_uint(std::vector<std::string> tokens) {
  */
 std::vector<std::string> tokenize(std::string source, char delimiter) {
 
-//     //to ensure the last word is correctly parsed
-//     if(source.back() != delimiter) source += delimiter;
+    //to ensure the last word is correctly parsed
+    if(source.back() != delimiter) source += delimiter;
     std::vector<std::string> stringtokens(0);
     std::string currtoken = "";
     for(const auto& i: source) {
@@ -88,4 +88,9 @@ std::vector<std::string> tokenize(std::string source, char delimiter) {
     }
     return stringtokens;
 }
+
+// template <long long> std::vector<long long>
+// string_tokens_to_int(std::string source, char delimiter);
+// template <long long> std::vector<long long>
+// string_tokens_to_int(std::vector<std::string> tokens);
 }
