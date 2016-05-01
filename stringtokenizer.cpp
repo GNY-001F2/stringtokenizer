@@ -40,7 +40,7 @@ string_tokens_to_int(std::string source, char delimiter) {
 }
 
 template <typename intT> std::vector<intT> 
-string_tokens_to_int(std::vector<std::string> tokens, bool skip) {
+string_tokens_to_int(std::vector<std::string> tokens) {
 
     std::vector<intT> int_tokens(0);
     for(const auto& i: tokens)
@@ -48,15 +48,15 @@ string_tokens_to_int(std::vector<std::string> tokens, bool skip) {
     return int_tokens;
 }
 
-template <typename UintT> std::vector<UntT>
-string_tokens_to_uint(std::string source, char delimiter, bool skip) {
+template <typename UintT> std::vector<UintT>
+string_tokens_to_uint(std::string source, char delimiter) {
 
     std::vector<std::string> tokens = tokenize(source, delimiter);
-    return string_tokens_to_uint<UintT>(tokens, skip);
+    return string_tokens_to_uint<UintT>(tokens);
 }
 
-template <typename UintT> std::vector<UntT> 
-string_tokens_to_uint(std::vector<std::string> tokens, bool skip = false) {
+template <typename UintT> std::vector<UintT>
+string_tokens_to_uint(std::vector<std::string> tokens) {
 
     std::vector<UintT> uint_tokens(0);
     for(const auto& i: tokens)
@@ -72,12 +72,17 @@ string_tokens_to_uint(std::vector<std::string> tokens, bool skip = false) {
  */
 std::vector<std::string> tokenize(std::string source, char delimiter) {
 
+//     //to ensure the last word is correctly parsed
+//     if(source.back() != delimiter) source += delimiter;
     std::vector<std::string> stringtokens(0);
     std::string currtoken = "";
     for(const auto& i: source) {
         if(i == delimiter) {
-            stringtokens.push_back(currtoken);
-            currtoken = "";
+            if(currtoken != "") {
+                stringtokens.push_back(currtoken);
+                currtoken = "";
+            }
+            else currtoken = "";
         }
         else currtoken += i;
     }

@@ -56,7 +56,7 @@ string_tokens_to_uint(std::string source, char delimiter);
  * template function that returns a vector of your specified unsigned
  * integer type converted from a source string vector
  */
-template <typename UintT> std::vector<Uint T>
+template <typename UintT> std::vector<UintT>
 string_tokens_to_uint(std::vector<std::string> tokens);
 
 /*TODO: define functions for float values */
