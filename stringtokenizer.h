@@ -1,4 +1,5 @@
-/* stringtokenizer.h; header for a collection of functions to manipulate string tokens
+/* stringtokenizer.h; defines a collection of functions to manipulate string
+ * tokens
  * Copyright (C) 2016  Aayush Agarwal
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,11 +24,45 @@
 
 namespace stringtokenizer {
 
-/* template function that returns a vector of integers converted from a source string
+/* string_tokens_to_int(std::string source, char delimiter):
+ * template function that returns a vector of your specified integer type
+ * converted from a source string as segregated by the delimiter of  your
+ * choice
  */
-template <typename intT> std::vector<intT> string_tokens_to_int(std::string source, std::string delimiter);
+template <typename intT> std::vector<intT>
+string_tokens_to_int(std::string source, char delimiter);
+
+/* string_tokens_to_int(std::vector<std::string> tokens):
+ * template function that returns a vector of your specified integer type
+ * converted from a source string vector
+ *
+ * if you believe that there may be values in your string vector that exceed 
+ * the size of the type  of your int vector, you may pass the optional
+ * skip = true to skip type size checking and process each number as if it were
+ * a long long value and then cast it to
+ */
+template <typename intT> std::vector<intT> 
+string_tokens_to_int(std::vector<std::string> tokens);
+
+/* string_tokens_to_uint(std::string source, char delimiter):
+ * template function that returns a vector of your specified unsigned integer
+ * type converted from a source string as segregated by the delimiter of your
+ * choice
+ */
+template <typename UintT> std::vector<UintT>
+string_tokens_to_uint(std::string source, char delimiter);
+
+/* string_tokens_to_int(std::vector<std::string> tokens):
+ * template function that returns a vector of your specified unsigned
+ * integer type converted from a source string vector
+ */
+template <typename UintT> std::vector<Uint T>
+string_tokens_to_uint(std::vector<std::string> tokens);
+
+/*TODO: define functions for float values */
 
 /* converts an entered string into a vector of string tokens based on
+ * the delimiter.
  */
 std::vector<std::string> tokenize(std::string source, char delimiter);
 
